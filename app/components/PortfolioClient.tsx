@@ -189,21 +189,24 @@ export function PortfolioClient() {
       <div id="main-content">
         <section className="hero section-shell" id="home">
           <VoyageScene mode={mode} />
+          <div className="hero-word" aria-hidden="true">AWAKEN</div>
+          <div className="cloud cloud-one" aria-hidden="true"><i /><i /><i /></div>
+          <div className="cloud cloud-two" aria-hidden="true"><i /><i /><i /></div>
           <div className="hero-grid">
             <div className="hero-copy">
               <div className="eyebrow">
                 <span className="status-dot" />
                 {profile.status}
               </div>
-              <p className="hero-kicker">Engineering voyage · Mumbai / India</p>
+              <p className="hero-kicker">Independent engineering · Mumbai / India</p>
               <h1>
-                Building intelligent systems for{" "}
-                <span>real-world decisions.</span>
+                Ideas that <span>bend limits.</span>
+                <strong>Systems that decide.</strong>
               </h1>
               <p className="hero-summary">{profile.summary}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#projects">
-                  Explore the voyage <span aria-hidden="true">↓</span>
+                  Enter the system <span aria-hidden="true">↓</span>
                 </a>
                 <a className="button button-quiet" href="#twin">
                   Ask my digital twin
@@ -223,17 +226,21 @@ export function PortfolioClient() {
 
             <div className="identity-wrap">
               <div className="identity-card">
-                <div className="identity-scan" aria-hidden="true" />
+                <div className="energy-ring" aria-hidden="true" />
+                <div className="ink-burst" aria-hidden="true"><i /><i /><i /><i /></div>
+                <div className="motion-ribbon ribbon-one" aria-hidden="true" />
+                <div className="motion-ribbon ribbon-two" aria-hidden="true" />
                 <div className="portrait-frame">
-                  {/* The source photo is preserved; CSS provides a non-destructive crop. */}
+                  {/* Identity-preserving animated illustration derived from Aryan's photo. */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/aryan-tripathi.jpeg"
-                    alt="Aryan Tripathi standing in a sunlit architectural courtyard"
-                    width={960}
-                    height={1280}
+                    src="/images/aryan-awakened-4k.webp"
+                    alt="Animated illustration of Aryan Tripathi"
+                    width={2160}
+                    height={3600}
                   />
                 </div>
+                <div className="character-shadow" aria-hidden="true" />
                 <div className="identity-meta">
                   <span>ID / AT-03</span>
                   <strong>Aryan Tripathi</strong>
@@ -244,14 +251,14 @@ export function PortfolioClient() {
                   <span>72.878° E</span>
                 </div>
               </div>
-              <div className="orbit-label orbit-one">Verified source</div>
+              <div className="orbit-label orbit-one">Identity preserved</div>
               <div className="orbit-label orbit-two">Open systems</div>
             </div>
           </div>
 
           <div className="hero-footer">
-            <span>Scroll to chart the route</span>
-            <div className="compass" aria-hidden="true"><i /><b>N</b></div>
+            <span>Scroll to release the system</span>
+            <div className="compass" aria-hidden="true"><i /><b>AT</b></div>
             <span>Evidence over hype</span>
           </div>
         </section>
@@ -285,11 +292,11 @@ export function PortfolioClient() {
         </section>
 
         <section className="projects section-shell" id="projects">
-          <SectionLabel code="02 / PROJECT ATLAS">Explorable work</SectionLabel>
+          <SectionLabel code="02 / SYSTEM WORLDS">Explorable work</SectionLabel>
           <div className="section-heading">
             <div>
               <p className="micro-copy">Nine public systems · source audited</p>
-              <h2>Islands of engineering.</h2>
+              <h2>Built to move in the real world.</h2>
             </div>
             <p>
               Every route shows what the code implements, where it is used, what
@@ -303,6 +310,15 @@ export function PortfolioClient() {
                 className={`project-card ${project.featured ? "is-featured" : ""}`}
                 id={`project-${project.slug}`}
                 key={project.slug}
+                onClick={(event) => {
+                  const target = event.target as HTMLElement;
+                  if (target.closest("a, button, summary, details, input")) return;
+                  window.open(
+                    project.live ?? project.repository,
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }}
               >
                 <div className="project-top">
                   <span className="project-index">{project.index}</span>
@@ -315,7 +331,16 @@ export function PortfolioClient() {
                   </div>
                 </div>
                 <p className="project-domain">{project.domain}</p>
-                <h3>{project.title}</h3>
+                <h3>
+                  <a
+                    href={project.live ?? project.repository}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${project.title}${project.live ? " live project" : " source repository"}`}
+                  >
+                    {project.title}
+                  </a>
+                </h3>
                 <p className="project-purpose">{project.purpose}</p>
                 <div className="stack-row">
                   {project.stack.slice(0, 4).map((item) => (
@@ -383,7 +408,7 @@ export function PortfolioClient() {
               <SectionLabel code="03 / PRIVATE COORDINATE">
                 Orvion audit status
               </SectionLabel>
-              <h2>A flagship route, deliberately unclaimed.</h2>
+              <h2>A flagship system, deliberately unclaimed.</h2>
               <p>
                 The Orvion / ExcelAI source was not present in the shared
                 portfolio workspace. Its architecture, feature status, security
@@ -532,7 +557,7 @@ export function PortfolioClient() {
         </section>
 
         <section className="timeline section-shell" id="timeline">
-          <SectionLabel code="07 / VOYAGE LOG">Engineering timeline</SectionLabel>
+          <SectionLabel code="07 / BUILD LOG">Engineering timeline</SectionLabel>
           <div className="timeline-track">
             {timeline.map((item, index) => (
               <article key={`${item.date}-${item.title}`}>
@@ -586,7 +611,7 @@ export function PortfolioClient() {
         <section className="contact section-shell" id="contact">
           <div className="contact-card">
             <div>
-              <SectionLabel code="10 / NEXT COORDINATE">Professional contact</SectionLabel>
+              <SectionLabel code="10 / NEXT MOVE">Professional contact</SectionLabel>
               <h2>Let’s build something that earns its complexity.</h2>
               <p>
                 Open to AI/ML, analytics engineering, data systems, computer
@@ -594,13 +619,21 @@ export function PortfolioClient() {
               </p>
             </div>
             <div className="contact-actions">
+              <a className="contact-direct" href="mailto:aryantripathi.9910@gmail.com">
+                <span>Email</span>
+                aryantripathi.9910@gmail.com
+              </a>
+              <a className="contact-direct" href="tel:+917977027708">
+                <span>Phone</span>
+                +91 79770 27708
+              </a>
               <a className="button button-primary" href={profile.linkedin} target="_blank" rel="noreferrer">
                 Connect on LinkedIn <ExternalIcon />
               </a>
               <a className="button button-quiet" href={profile.github} target="_blank" rel="noreferrer">
                 Inspect GitHub <ExternalIcon />
               </a>
-              <small>Direct email is intentionally not exposed in page content.</small>
+              <small>Available for internships, graduate roles, and serious build collaborations.</small>
             </div>
           </div>
         </section>
@@ -611,8 +644,8 @@ export function PortfolioClient() {
           <span className="brand-mark">AT</span>
           <p>Aryan Digital Twin<small>Evidence-led engineering portfolio</small></p>
         </div>
-        <p>Original interactive engineering voyage · © 2026 Aryan Tripathi</p>
-        <a href="#home">Return north ↑</a>
+        <p>Original interactive engineering system · © 2026 Aryan Tripathi</p>
+        <a href="#home">Return to top ↑</a>
       </footer>
     </main>
   );

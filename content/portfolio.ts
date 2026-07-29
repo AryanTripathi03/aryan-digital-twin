@@ -104,6 +104,7 @@ export const projects: Project[] = [
       "Raw industrial workbooks are not suitable public demo material.",
     ],
     repository: "https://github.com/AryanTripathi03/Berry-Excel-Merger",
+    live: "https://aryantripathi03.github.io/Berry-Excel-Merger/",
     featured: true,
   },
   {
@@ -138,6 +139,7 @@ export const projects: Project[] = [
       "Usage is user-confirmed rather than independently documented.",
     ],
     repository: "https://github.com/AryanTripathi03/Workbook-Converter",
+    live: "https://aryantripathi03.github.io/Workbook-Converter/",
     featured: true,
   },
   {
@@ -493,7 +495,7 @@ export const twinKnowledge = [
   {
     keywords: ["contact", "linkedin", "github", "reach", "collaborate"],
     answer:
-      "Use Aryan’s verified LinkedIn profile for professional contact or GitHub to inspect source evidence. His email is deliberately not exposed in prominent page content.",
+      "Reach Aryan at aryantripathi.9910@gmail.com or +91 79770 27708. LinkedIn is available for professional networking, and GitHub contains the source evidence.",
     sources: [["Contact", "#contact"]],
   },
 ];

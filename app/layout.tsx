@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#071114",
-  colorScheme: "dark",
+  themeColor: "#f7f4ed",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     type: "website",
     title: "Aryan Tripathi · Building intelligent systems",
     description:
-      "An explorable engineering voyage through AI, analytics, automation, and computer vision.",
+      "An original white-awakening portfolio for AI, analytics, automation, and computer vision.",
     siteName: "Aryan Digital Twin",
     images: [
       {
         url: "/og.png",
-        width: 1731,
-        height: 909,
+        width: 1672,
+        height: 941,
         alt: "Aryan Tripathi — Building Intelligent Systems",
       },
     ],
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aryan Tripathi · Building intelligent systems",
     description:
-      "An explorable engineering voyage through AI, analytics, automation, and computer vision.",
+      "An original white-awakening portfolio for AI, analytics, automation, and computer vision.",
     images: ["/og.png"],
   },
 };

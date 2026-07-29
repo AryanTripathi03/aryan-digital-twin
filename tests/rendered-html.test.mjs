@@ -27,10 +27,13 @@ test("server-renders the complete Aryan Digital Twin portfolio", async () => {
   const html = await response.text();
   assert.match(html, /Aryan Tripathi/);
   assert.match(html, /Building intelligent systems/);
-  assert.match(html, /Project Atlas/i);
+  assert.match(html, /System Worlds/i);
   assert.match(html, /Digital Twin/i);
   assert.match(html, /Berry Excel Merger/);
   assert.match(html, /Travel Billing Suite/);
+  assert.match(html, /aryantripathi03\.github\.io\/Berry-Excel-Merger/);
+  assert.match(html, /aryantripathi03\.github\.io\/Workbook-Converter/);
+  assert.match(html, /aryantripathi\.9910@gmail\.com/);
   assert.match(html, /aria-label="Primary navigation"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
