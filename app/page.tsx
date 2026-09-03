@@ -11,10 +11,10 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Aryan Tripathi",
-  url: "https://aryan-digital-twin.openai.site",
+  url: "https://aryan-digital-twin.aryantripathi-9910.chatgpt.site",
   sameAs: [
     "https://github.com/AryanTripathi03",
-    "https://www.linkedin.com/in/aryan-tripathi-61a14a372/",
+    "https://www.linkedin.com/in/aryantripathi-ai/",
   ],
   alumniOf: {
     "@type": "CollegeOrUniversity",

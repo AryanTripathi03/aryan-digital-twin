@@ -41,7 +41,7 @@ export const profile = {
   location: "Mumbai Metropolitan Region",
   status: "AI/ML Engineer · Open to engineering opportunities",
   github: "https://github.com/AryanTripathi03",
-  linkedin: "https://www.linkedin.com/in/aryan-tripathi-61a14a372/",
+  linkedin: "https://www.linkedin.com/in/aryantripathi-ai/",
 };
 
 export const projects: Project[] = [
