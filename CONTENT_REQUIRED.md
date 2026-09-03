@@ -2,11 +2,10 @@
 
 Only genuinely missing or unresolved material is listed here.
 
-- Current résumé PDF approved for public download
-- Orvion/ExcelAI repository path or read-only source package for a private audit
-- Orvion screenshots, safe demo video and architecture confirmation after audit
+- Optional résumé PDFs approved for public download; without them the site requests the latest targeted version by email
+- Final verified faithful live showcase URLs for Orvion and Vaani
+- Optional real Orvion and Vaani screenshots or short demonstration videos using synthetic data; public-safe covers are already present
 - Approved public description of the Aditya Birla Housing Finance internship
-- Confirmation of the Berry Alloys internship end month if it should ever be shown
 - Formal supporting artifact for measured impact or time-saved claims
 - App Development Workshop certificate PDF
 - Certificate preview images or permission to generate previews from the supplied PDFs

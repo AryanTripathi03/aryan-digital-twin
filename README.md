@@ -6,12 +6,15 @@ An evidence-led, interactive engineering portfolio for Aryan Tripathi. The exper
 
 - Cinematic server-rendered hero with a compact real portrait
 - Procedural voyage canvas with Full, Balanced and Minimal performance modes
-- Nine source-audited project case studies with architecture, evidence and limitations
+- Eleven project case studies led by Orvion and Vaani, with architecture, evidence and limitations
+- Public-safe visual covers, role and proof summaries for the flagship systems
 - Real-workflow labels for Berry merger tools and travel billing software, explicitly marked user-confirmed
-- Restrained professional experience section
-- Evidence-linked skills instead of proficiency percentages
+- Current-workflow labels for Orvion and Vaani plus previously deployed context for ForgeSense, explicitly marked user-confirmed
+- Focused single-page flow: cinematic hero, projects, certificates, Digital Twin and contact
+- Compact professional-experience signal for Aditya Birla Housing Finance Ltd and Berry Alloys Ltd
 - Searchable certificate vault with public PDFs
-- Engineering timeline
+- Multi-track résumé selector that downloads published versions or requests the latest targeted version
+- Portrait-phone refinements for modern devices including iPhone 14 Pro Max proportions
 - Deterministic, cited Aryan Digital Twin with no paid or external model
 - Conventional mobile navigation, keyboard support and reduced-motion behavior
 
@@ -59,7 +62,7 @@ No secret environment variable is required.
 4. Run lint, production build and tests.
 5. Review the page for confidential information before publishing.
 
-See `docs/content-guide.md`.
+See `docs/content-guide.md`. Résumé replacement and versioning is documented in `RESUME_WORKFLOW.md`.
 
 ## Digital Twin
 
@@ -93,17 +96,18 @@ See `SECURITY.md` and `docs/security-model.md`.
 
 ## Known limitations
 
-- Orvion could not be audited because its source was not in the shared workspace.
-- A final résumé PDF and several screenshots/videos have not been supplied.
+- The full Orvion and Vaani stacks depend on private local models, worker infrastructure and synthetic-safe showcase data; their public demos do not process confidential company material.
+- Résumé PDFs remain optional: unpublished tracks automatically request Aryan's latest targeted version by email.
+- Orvion and Vaani use approved public-safe showcase covers; real product recordings can be added later if supplied.
 - The canonical production domain must replace placeholder sitemap/schema URLs.
 - Some public project deployments require security hardening.
 - Browser visual QA was not requested in the initial brief; production build and rendered-output tests are the required baseline.
 
 ## Roadmap
 
-- Private Orvion source audit
-- Approved project screenshots and captioned videos
-- Public résumé
+- Verified faithful public showcase links for Orvion and Vaani
+- Optional real product recordings using synthetic data
+- Publish any approved résumé variants while retaining the request-latest fallback
 - Certificate preview thumbnails
 - Security hardening of live file-processing demos
 - Optional local Ollama adapter layered behind deterministic Twin retrieval

@@ -3,6 +3,7 @@ export type ProjectStatus =
   | "Functional prototype"
   | "Academic project"
   | "Experimental"
+  | "Previously deployed"
   | "In development";
 
 export type Project = {
@@ -12,14 +13,22 @@ export type Project = {
   purpose: string;
   status: ProjectStatus;
   domain: string;
+  role: string;
+  proof: string;
   stack: string[];
   context: string;
   solution: string;
   architecture: string[];
   evidence: string[];
   limitations: string[];
-  repository: string;
+  repository?: string;
+  sourceLabel?: string;
   live?: string;
+  cover?: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
   featured?: boolean;
 };
 
@@ -30,20 +39,108 @@ export const profile = {
   summary:
     "AI/ML engineer and full-stack systems builder focused on reliable analytics, industrial automation, computer vision, and practical data products.",
   location: "Mumbai Metropolitan Region",
-  status: "AI/ML Intern · Open to engineering opportunities",
+  status: "AI/ML Engineer · Open to engineering opportunities",
   github: "https://github.com/AryanTripathi03",
   linkedin: "https://www.linkedin.com/in/aryan-tripathi-61a14a372/",
 };
 
 export const projects: Project[] = [
   {
-    slug: "forgesense",
+    slug: "orvion",
     index: "01",
+    title: "Orvion",
+    purpose:
+      "A local-first analytics workspace that turns business datasets into traceable answers, models, forecasts, and decision workflows.",
+    status: "Active workflow",
+    domain: "Decision intelligence · Analytics",
+    role: "Product architect & full-stack engineer",
+    proof: "Current company workflow · confidential data excluded",
+    stack: ["Next.js", "FastAPI", "Pandas", "Ollama", "SQLite", "Docker"],
+    context:
+      "Business teams need flexible analytics without sending sensitive datasets to a paid external model or accepting untraceable generated numbers.",
+    solution:
+      "Orvion combines deterministic pandas execution with guarded local-model planning, schema-grounded analysis, account-scoped data, durable conversations, AutoML evaluation, simulation, and evidence-compatible reports.",
+    architecture: [
+      "Dataset intake",
+      "Schema grounding",
+      "Typed analysis plan",
+      "Pandas execution",
+      "Output validation",
+      "Reports and decisions",
+    ],
+    evidence: [
+      "Current use in a real company workflow is confirmed by Aryan; confidential data is excluded.",
+      "Implements multi-format ingestion, dataset ownership, searchable conversations, and persistent analysis history.",
+      "Validates schema, calculation coverage, and numeric evidence before returning business-language answers.",
+      "Includes AutoML, forecasts, simulation, decision intelligence, and PDF, Excel, CSV, and JSON reports.",
+    ],
+    limitations: [
+      "The full product is designed for a local or single-instance deployment with private model infrastructure.",
+      "Horizontal scale requires managed storage, a distributed job queue, and a private or hosted model endpoint.",
+      "Public showcase data must remain synthetic and exclude confidential business material.",
+    ],
+    cover: {
+      src: "/projects/orvion-interface.webp",
+      alt: "Authentic Orvion decision-intelligence workspace with analytics navigation and dataset conversation controls",
+      caption: "Authentic live interface · original public demo",
+    },
+    sourceLabel: "Private source",
+    live: "https://orvion-intelligence.aryantripathi-9910.chatgpt.site",
+    featured: true,
+  },
+  {
+    slug: "vaani",
+    index: "02",
+    title: "Vaani AI",
+    purpose:
+      "Turns multilingual recordings into English transcripts, reviewable evidence, and operational call intelligence without paid APIs.",
+    status: "Active workflow",
+    domain: "Local AI · Conversation intelligence",
+    role: "AI pipeline & product engineer",
+    proof: "Current company workflow · local-first processing",
+    stack: ["Next.js", "FastAPI", "faster-whisper", "Celery", "Redis", "MySQL"],
+    context:
+      "Teams need a private, dependable way to process large batches of calls and voice notes while preserving timestamps, speaker evidence, and reviewability.",
+    solution:
+      "A local-first pipeline validates and normalizes uploaded media, transcribes multilingual and code-switched speech, translates it to English, separates speakers, and produces evidence-backed analysis and exports.",
+    architecture: [
+      "Protected upload",
+      "Media validation",
+      "Celery pipeline",
+      "Local transcription",
+      "Speaker alignment",
+      "Evidence exports",
+    ],
+    evidence: [
+      "Current use in a real company workflow is confirmed by Aryan; recordings and company data are excluded.",
+      "Implements single, batch, and ZIP upload workflows with ownership and archive-safety controls.",
+      "Uses local faster-whisper recognition, translation, diarization, and timestamped transcript evidence.",
+      "Exports reviewable transcript, analysis, lead, follow-up, objection, Excel, CSV, JSON, and ZIP outputs.",
+    ],
+    limitations: [
+      "The full accuracy stack depends on large local models and worker infrastructure; public previews must exclude private recordings.",
+      "Audio quality, overlapping speech, and heavy compression still affect recognition confidence.",
+      "Organisation-specific compliance and agent-scoring rubrics remain intentionally unconfigured.",
+    ],
+    sourceLabel: "Private source",
+    live: "https://vaani-ai-evidence.aryantripathi-9910.chatgpt.site",
+    cover: {
+      src: "/projects/vaani-interface.webp",
+      alt: "Authentic Vaani AI workspace with recording upload, batch processing queue, and evidence-first local pipeline",
+      caption: "Authentic live interface · original public demo",
+    },
+    featured: true,
+  },
+  {
+    slug: "forgesense",
+    index: "03",
     title: "ForgeSense Intelligence",
     purpose:
       "Turns furnace workbooks into performance metrics, anomaly signals, and operational insights.",
-    status: "Functional prototype",
+    status: "Previously deployed",
     domain: "Industrial analytics",
+    role: "Analytics engineer",
+    proof: "Previously used in an industrial workflow",
     stack: ["Python", "Streamlit", "Pandas", "NumPy", "Plotly", "OpenPyXL"],
     context:
       "Industrial reporting workbooks contain production, cost, recovery, power, and breakdown fields that need structured analysis.",
@@ -58,6 +155,7 @@ export const projects: Project[] = [
       "Plotly dashboard",
     ],
     evidence: [
+      "Previous use in an industrial workflow is confirmed by Aryan.",
       "Source contains FurnaceDataLoader and FurnaceDataProcessor modules.",
       "Implemented metrics include cost per ton, yield, availability, and anomaly detection.",
       "A public Streamlit deployment is linked from the repository.",
@@ -70,16 +168,23 @@ export const projects: Project[] = [
     repository:
       "https://github.com/AryanTripathi03/ForgeSense-Intelligence",
     live: "https://forgesense-intel.streamlit.app/",
+    cover: {
+      src: "/projects/forgesense-interface.webp",
+      alt: "Authentic live ForgeSense furnace performance intelligence dashboard with data upload and navigation controls",
+      caption: "Authentic live interface · public Streamlit deployment",
+    },
     featured: true,
   },
   {
     slug: "berry-merger",
-    index: "02",
+    index: "04",
     title: "Berry Excel Merger",
     purpose:
       "Consolidates irregular furnace workbooks into a single reporting-ready dataset.",
     status: "Active workflow",
     domain: "Industrial automation",
+    role: "Automation engineer",
+    proof: "Active Berry Alloys workflow",
     stack: ["FastAPI", "Pandas", "OpenPyXL", "HTML", "JavaScript"],
     context:
       "Shift and furnace reports use repeated metadata and inconsistent header placement, creating repetitive consolidation work.",
@@ -105,16 +210,23 @@ export const projects: Project[] = [
     ],
     repository: "https://github.com/AryanTripathi03/Berry-Excel-Merger",
     live: "https://aryantripathi03.github.io/Berry-Excel-Merger/",
+    cover: {
+      src: "/projects/berry-excel-merger.webp",
+      alt: "Berry Excel Merger repository presentation featured on Aryan Tripathi's LinkedIn profile",
+      caption: "Authentic featured media · LinkedIn",
+    },
     featured: true,
   },
   {
     slug: "workbook-converter",
-    index: "03",
+    index: "05",
     title: "Workbook Converter",
     purpose:
       "Packages CSV and Excel uploads into a multi-sheet workbook in memory.",
     status: "Active workflow",
     domain: "Backend engineering",
+    role: "Backend & automation engineer",
+    proof: "Active Berry Alloys workflow",
     stack: ["FastAPI", "Pandas", "OpenPyXL", "HTML"],
     context:
       "Mixed file formats often need a consistent workbook container for downstream reporting.",
@@ -144,12 +256,14 @@ export const projects: Project[] = [
   },
   {
     slug: "travel-billing",
-    index: "04",
+    index: "06",
     title: "Travel Billing Suite",
     purpose:
       "Generates operational travel invoices for outstation, local, and drop trips.",
     status: "Active workflow",
     domain: "Business software",
+    role: "Product engineer",
+    proof: "Active operator billing workflow",
     stack: ["Python", "Streamlit", "ReportLab", "PDF", "Local state"],
     context:
       "Small travel operators need a fast, mobile-friendly way to calculate trip charges and create consistent invoices.",
@@ -180,12 +294,14 @@ export const projects: Project[] = [
   },
   {
     slug: "driver-safety",
-    index: "05",
+    index: "07",
     title: "Driver Drowsiness Monitoring",
     purpose:
       "Detects fatigue and distraction cues from a live camera feed.",
     status: "Academic project",
     domain: "Computer vision",
+    role: "Computer-vision engineer",
+    proof: "Academic real-time monitoring prototype",
     stack: ["Python", "OpenCV", "Dlib", "NumPy", "SolvePnP"],
     context:
       "Driver-monitoring systems need to combine several imperfect visual signals without blocking the camera pipeline.",
@@ -215,12 +331,14 @@ export const projects: Project[] = [
   },
   {
     slug: "rams",
-    index: "06",
+    index: "08",
     title: "RAMS",
     purpose:
       "Routes anomalous lending records into a review queue with traceable decisions.",
     status: "Functional prototype",
     domain: "Risk analytics",
+    role: "ML & full-stack engineer",
+    proof: "Human-in-the-loop functional prototype",
     stack: ["Django", "Pandas", "Isolation Forest", "Plotly", "SQLite"],
     context:
       "Risk review benefits from combining statistical anomaly detection with a human approval workflow.",
@@ -250,12 +368,14 @@ export const projects: Project[] = [
   },
   {
     slug: "pothole",
-    index: "07",
+    index: "09",
     title: "Pothole Detection System",
     purpose:
       "Runs local object detection on road imagery with a real-time monitoring HUD.",
     status: "Academic project",
     domain: "Computer vision",
+    role: "Computer-vision engineer",
+    proof: "Academic edge-inference prototype",
     stack: ["Python", "YOLO", "TensorFlow Lite", "OpenCV", "NumPy"],
     context:
       "Road inspection can be assisted by automated detection, but edge deployment needs compact inference and post-processing.",
@@ -285,12 +405,14 @@ export const projects: Project[] = [
   },
   {
     slug: "student-success",
-    index: "08",
+    index: "10",
     title: "Student Success Agent",
     purpose:
       "Combines deterministic academic-risk analysis with optional local mentoring responses.",
     status: "In development",
     domain: "Agentic systems",
+    role: "AI systems engineer",
+    proof: "Local agent system in development",
     stack: ["FastAPI", "Pandas", "Pydantic", "Ollama", "DeepSeek"],
     context:
       "Student performance data can support early intervention when risk and weak-subject logic remain inspectable.",
@@ -319,12 +441,14 @@ export const projects: Project[] = [
   },
   {
     slug: "finsight",
-    index: "09",
+    index: "11",
     title: "Finsight AI",
     purpose:
       "Explores natural-language questions over a relational banking dataset.",
     status: "Experimental",
     domain: "Analytics assistant",
+    role: "Full-stack AI engineer",
+    proof: "Experimental schema-grounded analytics",
     stack: ["Django", "SQL", "OpenRouter", "Python"],
     context:
       "Natural-language analytics needs schema grounding and protection against unsafe generated queries.",
@@ -433,28 +557,18 @@ export const certificates = [
   },
 ];
 
-export const timeline = [
-  ["2023", "B.Tech CSE (AI & ML)", "Started engineering studies at the University of Mumbai."],
-  ["2024", "Application development", "Completed an app development workshop and expanded into full-stack work."],
-  ["2025", "Data and AI foundations", "Completed IBM data credentials and the Green Skills & AI programme."],
-  ["Dec 2025", "Berry Alloys Ltd", "AI/ML internship focused on industrial analytics and workflow automation."],
-  ["2025–26", "Applied systems portfolio", "Built public systems across furnace analytics, computer vision, anomaly review, and data utilities."],
-  ["Jun 2026", "Aditya Birla Housing Finance", "Joined as an AI/ML Intern; public details remain intentionally high-level."],
-  ["Now", "Decision-focused engineering", "Building toward AI/ML, analytics engineering, data, and full-stack roles."],
-].map(([date, title, text]) => ({ date, title, text }));
-
 export const twinKnowledge = [
   {
     keywords: ["who", "aryan", "about", "biography", "role", "engineer"],
     answer:
-      "Aryan Tripathi is a B.Tech CSE (AI & ML) student and AI/ML intern who builds data-intensive software across industrial analytics, computer vision, workflow automation, and backend systems.",
-    sources: [["About", "#about"], ["Experience", "#experience"]],
+      "Aryan Tripathi is a B.Tech CSE (AI & ML) student and systems builder who has completed AI/ML internships and builds data-intensive software across industrial analytics, computer vision, workflow automation, and backend systems.",
+    sources: [["Project portfolio", "#projects"], ["Contact", "#contact"]],
   },
   {
     keywords: ["experience", "intern", "aditya", "birla", "berry", "work", "company"],
     answer:
-      "Aryan is an AI/ML Intern at Aditya Birla Housing Finance and completed AI/ML internship work with Berry Alloys. Company details stay high-level; public source code supplies the engineering evidence.",
-    sources: [["Experience", "#experience"], ["Evidence policy", "#evidence"]],
+      "Aryan completed AI/ML internships with Aditya Birla Housing Finance Ltd and Berry Alloys Ltd. Company details stay high-level; public source code supplies the engineering evidence without publishing confidential material.",
+    sources: [["Project portfolio", "#projects"], ["Contact", "#contact"]],
   },
   {
     keywords: ["industry", "industrial", "berry", "furnace", "excel", "workflow", "production", "used"],
@@ -472,7 +586,7 @@ export const twinKnowledge = [
     keywords: ["architecture", "backend", "fastapi", "django", "api", "pipeline", "system"],
     answer:
       "Aryan’s public systems typically separate intake, deterministic processing, domain logic, and presentation: FastAPI file pipelines, Django review workflows, Streamlit analytics, and local Ollama adapters.",
-    sources: [["Project atlas", "#projects"], ["Skills evidence", "#skills"]],
+    sources: [["Project atlas", "#projects"]],
   },
   {
     keywords: ["computer", "vision", "opencv", "pothole", "drowsiness", "driver", "yolo"],
@@ -481,16 +595,34 @@ export const twinKnowledge = [
     sources: [["Driver monitoring", "#project-driver-safety"], ["Pothole detection", "#project-pothole"]],
   },
   {
-    keywords: ["orvion", "excelai", "private", "flagship"],
+    keywords: ["orvion", "excelai", "analytics", "decision", "flagship", "automl"],
     answer:
-      "Orvion is intentionally not presented as verified yet. Its source was not in the shared portfolio workspace, so architecture and feature claims are withheld until a private audit is completed.",
-    sources: [["Orvion audit status", "#orvion"]],
+      "Orvion is Aryan’s priority project: a local-first decision-intelligence platform that combines schema-grounded planning with deterministic pandas execution, output validation, AutoML, forecasting, simulation, durable conversations, and evidence-compatible reports.",
+    sources: [["Orvion", "#project-orvion"]],
+  },
+  {
+    keywords: ["vaani", "voice", "audio", "transcript", "transcription", "speaker", "conversation"],
+    answer:
+      "Vaani AI is Aryan’s local-first conversation-intelligence system. It validates recording uploads, transcribes multilingual and code-switched speech locally, translates to English, aligns speakers and timestamps, and exports evidence-backed call analysis without paid APIs.",
+    sources: [["Vaani AI", "#project-vaani"]],
+  },
+  {
+    keywords: ["certificate", "certificates", "credential", "credentials", "learning", "education"],
+    answer:
+      "Aryan’s credential record includes a CODE-A-THON 2026 finalist certificate, IBM SkillsBuild credentials in data analytics and Python, Big Data 101, Green Skills & AI, and an application-development workshop.",
+    sources: [["Certificate vault", "#certificates"]],
   },
   {
     keywords: ["job", "roles", "fit", "hire", "career", "position"],
     answer:
       "The evidence best supports graduate or internship roles in AI/ML engineering, analytics engineering, data-focused backend development, computer vision, and Python full-stack development.",
-    sources: [["Skills evidence", "#skills"], ["Project atlas", "#projects"]],
+    sources: [["Project atlas", "#projects"], ["Contact", "#contact"]],
+  },
+  {
+    keywords: ["resume", "résumé", "cv", "download", "ai", "data", "full-stack", "request"],
+    answer:
+      "Aryan keeps one current professional résumé. Use the résumé action in Contact to request the latest copy directly, avoiding an outdated public document.",
+    sources: [["Latest résumé", "#contact"]],
   },
   {
     keywords: ["contact", "linkedin", "github", "reach", "collaborate"],

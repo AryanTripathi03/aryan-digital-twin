@@ -27,7 +27,7 @@ flowchart LR
 
 ## Backend
 
-No application backend is required for current features. Static/server-rendered delivery reduces attack surface. Contact uses verified LinkedIn and GitHub routes instead of storing messages or exposing an email address.
+No application backend is required for current features. Static/server-rendered delivery reduces attack surface. Contact uses direct email, phone, LinkedIn and GitHub routes without storing visitor messages.
 
 ## Content ingestion
 
@@ -109,7 +109,7 @@ flowchart TD
 - Reduced motion: Minimal mode disables continuous visual movement
 - Missing external demo: repository evidence remains available
 - Digital Twin no match: explicit no-source answer with suggested topics
-- Missing résumé/Orvion: controls are omitted; audit-pending copy is shown
+- Missing résumé or public showcase URL: unsupported controls are omitted while repository evidence remains available
 
 ## Performance strategy
 

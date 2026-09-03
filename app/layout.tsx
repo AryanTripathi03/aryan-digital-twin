@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s · Aryan Tripathi",
   },
   description:
-    "Evidence-led portfolio of Aryan Tripathi: AI/ML engineering, industrial analytics, computer vision, data systems, and Python software.",
+    "Aryan Tripathi’s evidence-led AI/ML portfolio, led by Orvion decision intelligence and Vaani conversation intelligence.",
   keywords: [
     "Aryan Tripathi",
     "AI ML Engineer",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Aryan Tripathi · Building intelligent systems",
     description:
-      "An original white-awakening portfolio for AI, analytics, automation, and computer vision.",
+      "Orvion, Vaani and evidence-backed systems across AI, analytics, automation and computer vision.",
     siteName: "Aryan Digital Twin",
     images: [
       {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aryan Tripathi · Building intelligent systems",
     description:
-      "An original white-awakening portfolio for AI, analytics, automation, and computer vision.",
+      "Orvion, Vaani and evidence-backed systems across AI, analytics, automation and computer vision.",
     images: ["/og.png"],
   },
 };

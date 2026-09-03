@@ -4,7 +4,7 @@ import { PortfolioClient } from "./components/PortfolioClient";
 export const metadata: Metadata = {
   title: "Aryan Tripathi · AI/ML Engineer & Systems Builder",
   description:
-    "Evidence-led portfolio of Aryan Tripathi: AI/ML engineering, industrial analytics, computer vision, data systems, and Python software.",
+    "Aryan Tripathi’s evidence-led AI/ML portfolio, led by Orvion decision intelligence and Vaani conversation intelligence.",
 };
 
 const personSchema = {

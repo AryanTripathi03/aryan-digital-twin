@@ -56,13 +56,8 @@ The base rhythm is 4px. Common steps are 8, 12, 16, 24, 32, 48, 64, 96 and 144px
 - Section coordinate labels
 - Project systems with native `<details>` case studies
 - Architecture route
-- Private-system audit card
-- Experience log
-- Evidence-linked skill loadout
 - Searchable credential vault
-- Horizontal timeline
 - Deterministic Digital Twin console
-- Trust and evidence layer
 - Professional contact panel with email, phone, LinkedIn and GitHub
 
 ## Responsive behavior
@@ -86,4 +81,4 @@ The base rhythm is 4px. Common steps are 8, 12, 16, 24, 32, 48, 64, 96 and 144px
 - Loading: essential HTML server-renders; canvas begins only after hydration
 - Error: canvas absence does not affect content; missing certificate PDFs display a text state
 - Empty: certificate search shows an explicit no-results message
-- Orvion: unavailable evidence is an intentional audit-pending state, not a fake feature card
+- Priority work: Orvion leads the project sequence, followed by Vaani and the wider evidence-backed portfolio

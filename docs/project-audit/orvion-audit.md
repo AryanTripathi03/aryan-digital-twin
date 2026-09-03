@@ -2,54 +2,32 @@
 
 ## Audit result
 
-Status: **Unclear — source not available in the shared workspace**
+Status: **Implemented local-first system; public showcase pending final verification**
 
-The shared workspace was empty before this portfolio was initialized. No folder named Orvion, ExcelAI, Excel AI, analytics workspace, decision intelligence platform or equivalent was available inside the authorized project scope. No Orvion capability is therefore classified as implemented.
+The Orvion source was inspected from Aryan's local ExcelAI/Orvion workspace in August 2026. The portfolio publishes only capabilities visible in source and documentation and excludes company datasets, credentials, private screenshots, unsupported metrics and operational details.
 
-## Capability classification
+## Verified capability groups
 
-Every capability listed in the master brief remains **unclear** pending source inspection, including authentication, uploads, Data Hub, profiling, natural-language analytics, conversation history, AutoML, simulation, reports, deterministic calculation, Python execution, local inference and exports.
+- Next.js frontend with FastAPI services and account-scoped datasets
+- CSV, Excel, JSON, PDF, Word, PowerPoint and text intake
+- Schema-grounded analytics contracts with deterministic pandas execution
+- Coverage checks, typed plans, output validation and reproducible traces
+- Persistent conversations, search and dataset management
+- AutoML evaluation, forecasting, simulation and decision-intelligence workspaces
+- PDF, Excel, CSV and JSON reporting from calculated evidence
+- Docker and local-model deployment paths
 
-## Architecture
+## Current-use boundary
 
-Not verified. The proposed Next.js → authenticated API → FastAPI → dataset/conversation/analytics services flow must not be published as current architecture until the real code confirms it.
+Current use in a real company workflow is confirmed by Aryan. The portfolio does not identify confidential datasets, internal processes, users, performance metrics or private deployment details.
 
-## Safe portfolio presentation
+## Public showcase boundary
 
-- Keep an “audit pending” coordinate in the portfolio.
-- Do not show fake screenshots, demo buttons, architecture nodes or status labels.
-- Offer a private technical walkthrough through the verified professional contact route.
-- Replace the audit-pending state only after inspecting actual source, configuration, migrations, tests and safe demo assets.
+The full system is designed around private local models and single-instance infrastructure. A public showcase must use synthetic data and must not imply that the hosted surface exposes the full private runtime.
 
-## Security and confidentiality risks
+## Remaining verification before publication
 
-- Dataset uploads may contain personal or company data.
-- Conversation logs can expose proprietary questions and derived results.
-- Python execution and local model adapters require strong isolation and prompt-injection controls.
-- Authentication, exports and analytics traces require access-control review.
-- Any Berry Alloys or Aditya Birla material needs explicit approval and redaction.
-
-## Evidence needed
-
-1. Read-only repository or source package
-2. Runtime and environment configuration without secrets
-3. Database schema and migrations
-4. Frontend/backend entry points and service modules
-5. Authentication and upload flows
-6. Tests and build output
-7. Approved sample dataset
-8. Safe screenshots and a captioned walkthrough
-9. Status of every promised capability
-10. Deployment and threat model
-
-## Recommended screenshots and video after audit
-
-- Empty local workspace
-- Safe synthetic dataset upload
-- Dataset profile
-- One deterministic calculation with evidence
-- Conversation source citations
-- Simulation/AutoML only if implemented
-- Export flow using synthetic data
-- Privacy/security settings
-- 60–90 second captioned walkthrough with no confidential material
+1. Keep the source private and expose only the verified public demo URL.
+2. Confirm the public showcase URL from an independent browser session.
+3. Review screenshots and sample data for confidential information.
+4. Re-run frontend type checks, production builds and relevant backend tests.

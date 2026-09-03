@@ -11,10 +11,10 @@ type Message = {
 };
 
 const prompts = [
+  "Why is Orvion the priority project?",
+  "What does Vaani AI do?",
   "Which projects are used in real workflows?",
-  "Explain Aryan’s computer vision work.",
-  "Which projects show backend engineering?",
-  "What roles fit Aryan’s evidence?",
+  "Which résumé should I request?",
 ];
 
 const blockedTopics = [
@@ -34,7 +34,7 @@ function findAnswer(question: string) {
     return {
       answer:
         "I only answer from Aryan’s verified professional portfolio. Ask about projects, skills, experience, education, architecture, or contact routes.",
-      sources: [["Evidence policy", "#evidence"]] as TwinSource[],
+      sources: [["Project portfolio", "#projects"]] as TwinSource[],
     };
   }
 
@@ -74,7 +74,7 @@ export function DigitalTwin() {
     {
       role: "twin",
       text: "Online in verified mode. I answer from the portfolio knowledge base and cite the relevant section.",
-      sources: [["Evidence policy", "#evidence"]],
+      sources: [["Project portfolio", "#projects"]],
     },
   ]);
 

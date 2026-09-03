@@ -6,8 +6,6 @@ import {
   certificates,
   profile,
   projects,
-  skills,
-  timeline,
 } from "../../content/portfolio";
 import { DigitalTwin } from "./DigitalTwin";
 import type { PerformanceMode } from "./VoyageScene";
@@ -16,17 +14,16 @@ import { VoyageScene } from "./VoyageScene";
 const navigation = [
   ["Home", "home"],
   ["Work", "projects"],
-  ["Experience", "experience"],
-  ["Skills", "skills"],
-  ["Timeline", "timeline"],
+  ["Certificates", "certificates"],
   ["Twin", "twin"],
   ["Contact", "contact"],
 ];
 
+const selectedProjectCount = 4;
+
 function ExternalIcon() {
   return <span aria-hidden="true">↗</span>;
 }
-
 function SectionLabel({ code, children }: { code: string; children: ReactNode }) {
   return (
     <div className="section-label">
@@ -57,6 +54,8 @@ export function PortfolioClient() {
   const [progress, setProgress] = useState(0);
   const [certificateQuery, setCertificateQuery] = useState("");
   const [certificateFilter, setCertificateFilter] = useState("All");
+  const [emailCopied, setEmailCopied] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(certificates.map((item) => item.category)))],
@@ -72,9 +71,19 @@ export function PortfolioClient() {
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const compactViewport = window.matchMedia("(max-width: 820px)").matches;
     const cores = navigator.hardwareConcurrency || 4;
     const timer = window.setTimeout(
-      () => setMode(reduced ? "minimal" : cores >= 8 ? "full" : "balanced"),
+      () =>
+        setMode(
+          reduced
+            ? "minimal"
+            : compactViewport
+              ? "balanced"
+              : cores >= 8
+                ? "full"
+                : "balanced",
+        ),
       0,
     );
     return () => window.clearTimeout(timer);
@@ -117,6 +126,25 @@ export function PortfolioClient() {
       "--pointer-y",
       `${event.clientY / window.innerHeight - 0.5}`,
     );
+  }
+
+  async function copyEmail() {
+    const email = "aryantripathi.9910@gmail.com";
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const field = document.createElement("textarea");
+      field.value = email;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      document.execCommand("copy");
+      field.remove();
+    }
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 2200);
   }
 
   return (
@@ -263,39 +291,30 @@ export function PortfolioClient() {
           </div>
         </section>
 
-        <section className="manifesto section-shell" id="about">
-          <SectionLabel code="01 / MANIFESTO">About the engineer</SectionLabel>
-          <div className="manifesto-grid">
-            <h2>
-              I build the bridge between <em>messy data</em> and{" "}
-              <em>useful action.</em>
-            </h2>
-            <div>
-              <p>
-                My work moves across industrial reporting, computer vision,
-                backend services, analytics workflows, and local AI. The common
-                thread is practical: inspect the input, make the reasoning
-                traceable, and return something a person can use.
-              </p>
-              <p>
-                This portfolio is itself an evidence layer. Public claims map to
-                source code, documents, or clearly marked user-provided context.
-              </p>
-            </div>
+        <aside className="experience-signal section-shell" aria-label="Professional experience">
+          <div className="experience-signal-label">
+            <span>Professional experience</span>
+            <small>Public, non-confidential context</small>
           </div>
-          <div className="principle-strip">
-            <span>01 · Systems before screens</span>
-            <span>02 · Deterministic before generative</span>
-            <span>03 · Privacy by default</span>
-            <span>04 · Evidence attached</span>
+          <div className="experience-signal-item">
+            <span>Completed internship</span>
+            <strong>Aditya Birla Housing Finance Ltd</strong>
+            <small>AI/ML Intern</small>
           </div>
-        </section>
+          <div className="experience-signal-item">
+            <span>Completed internship</span>
+            <strong>Berry Alloys Ltd</strong>
+            <small>AI/ML Intern</small>
+          </div>
+        </aside>
 
         <section className="projects section-shell" id="projects">
-          <SectionLabel code="02 / SYSTEM WORLDS">Explorable work</SectionLabel>
+          <SectionLabel code="01 / SYSTEM WORLDS">Explorable work</SectionLabel>
           <div className="section-heading">
             <div>
-              <p className="micro-copy">Nine public systems · source audited</p>
+              <p className="micro-copy">
+                {selectedProjectCount} selected systems · {projects.length - selectedProjectCount} more available
+              </p>
               <h2>Built to move in the real world.</h2>
             </div>
             <p>
@@ -304,17 +323,23 @@ export function PortfolioClient() {
             </p>
           </div>
 
-          <div className="project-grid">
-            {projects.map((project) => (
+          <div
+            className={`project-grid ${showAllProjects ? "is-expanded" : "is-curated"}`}
+            id="project-atlas"
+          >
+            {projects.map((project, index) => (
               <article
-                className={`project-card ${project.featured ? "is-featured" : ""}`}
+                className={`project-card ${project.featured ? "is-featured" : ""} ${project.live || project.repository ? "is-linked" : ""} ${project.cover ? "has-cover" : ""}`}
                 id={`project-${project.slug}`}
                 key={project.slug}
+                hidden={!showAllProjects && index >= selectedProjectCount}
                 onClick={(event) => {
                   const target = event.target as HTMLElement;
                   if (target.closest("a, button, summary, details, input")) return;
+                  const destination = project.live ?? project.repository;
+                  if (!destination) return;
                   window.open(
-                    project.live ?? project.repository,
+                    destination,
                     "_blank",
                     "noopener,noreferrer",
                   );
@@ -330,17 +355,44 @@ export function PortfolioClient() {
                     )}
                   </div>
                 </div>
+                {project.cover && (
+                  <figure className="project-cover">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={project.cover.src}
+                      alt={project.cover.alt}
+                      width={1672}
+                      height={942}
+                      loading="lazy"
+                    />
+                    <figcaption>{project.cover.caption}</figcaption>
+                  </figure>
+                )}
                 <p className="project-domain">{project.domain}</p>
                 <h3>
-                  <a
-                    href={project.live ?? project.repository}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Open ${project.title}${project.live ? " live project" : " source repository"}`}
-                  >
-                    {project.title}
-                  </a>
+                  {project.live || project.repository ? (
+                    <a
+                      href={project.live ?? project.repository}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${project.title}${project.live ? " live project" : " source repository"}`}
+                    >
+                      {project.title}
+                    </a>
+                  ) : (
+                    project.title
+                  )}
                 </h3>
+                <dl className="project-proof">
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{project.role}</dd>
+                  </div>
+                  <div>
+                    <dt>Proof</dt>
+                    <dd>{project.proof}</dd>
+                  </div>
+                </dl>
                 <p className="project-purpose">{project.purpose}</p>
                 <div className="stack-row">
                   {project.stack.slice(0, 4).map((item) => (
@@ -385,9 +437,15 @@ export function PortfolioClient() {
                   </div>
                 </details>
                 <div className="project-links">
-                  <a href={project.repository} target="_blank" rel="noreferrer">
-                    Source <ExternalIcon />
-                  </a>
+                  {project.repository ? (
+                    <a href={project.repository} target="_blank" rel="noreferrer">
+                      Source <ExternalIcon />
+                    </a>
+                  ) : (
+                    <span className="project-link-pending">
+                      {project.sourceLabel ?? "Public source publishing"}
+                    </span>
+                  )}
                   {project.live && (
                     <a href={project.live} target="_blank" rel="noreferrer">
                       Public demo <ExternalIcon />
@@ -397,120 +455,33 @@ export function PortfolioClient() {
               </article>
             ))}
           </div>
+
+          <button
+            className="project-atlas-toggle"
+            type="button"
+            aria-controls="project-atlas"
+            aria-expanded={showAllProjects}
+            onClick={() => setShowAllProjects((current) => !current)}
+          >
+            <span>
+              {showAllProjects
+                ? "Return to selected systems"
+                : `Explore ${projects.length - selectedProjectCount} more systems`}
+            </span>
+            <small>
+              {showAllProjects
+                ? "Keep the strongest evidence in view"
+                : "Additional engineering, computer vision, risk, and agentic work"}
+            </small>
+            <b aria-hidden="true">{showAllProjects ? "−" : "+"}</b>
+          </button>
         </section>
 
-        <section className="orvion section-shell" id="orvion">
-          <div className="orvion-card">
-            <div className="orvion-orbit" aria-hidden="true">
-              <i /><i /><i /><span>O</span>
-            </div>
-            <div>
-              <SectionLabel code="03 / PRIVATE COORDINATE">
-                Orvion audit status
-              </SectionLabel>
-              <h2>A flagship system, deliberately unclaimed.</h2>
-              <p>
-                The Orvion / ExcelAI source was not present in the shared
-                portfolio workspace. Its architecture, feature status, security
-                model, screenshots, and performance claims are withheld until a
-                private source audit is available.
-              </p>
-              <div className="orvion-status">
-                <span>Source audit</span>
-                <strong>Pending local repository</strong>
-              </div>
-              <a href="#contact">Arrange a private technical walkthrough →</a>
-            </div>
-          </div>
-        </section>
 
-        <section className="experience section-shell" id="experience">
-          <SectionLabel code="04 / EXPERIENCE LOG">Professional context</SectionLabel>
-          <div className="section-heading">
-            <div>
-              <p className="micro-copy">Public, restrained, non-confidential</p>
-              <h2>Work near real decisions.</h2>
-            </div>
-            <p>
-              Company details stay high-level. Public repositories supply
-              technical proof; internal data and processes stay private.
-            </p>
-          </div>
-          <div className="experience-list">
-            <article>
-              <div className="experience-time">
-                <span>Jun 2026 — Present</span>
-                <small>Current coordinate</small>
-              </div>
-              <div className="experience-body">
-                <p>Aditya Birla Housing Finance Limited</p>
-                <h3>AI/ML Intern</h3>
-                <p>
-                  Current internship in a financial-services environment. The
-                  public description is intentionally limited: no customer data,
-                  business logic, internal dashboards, or unapproved outcomes.
-                </p>
-                <div className="evidence-chip">Source · Public profile</div>
-              </div>
-              <span className="experience-number">01</span>
-            </article>
-            <article>
-              <div className="experience-time">
-                <span>From Dec 2025</span>
-                <small>Completed internship</small>
-              </div>
-              <div className="experience-body">
-                <p>Berry Alloys Ltd</p>
-                <h3>AI/ML Intern</h3>
-                <p>
-                  Worked on industrial analytics and reporting automation.
-                  Public code verifies furnace-workbook consolidation, heuristic
-                  metadata detection, analytics metrics, and reporting
-                  interfaces. Use of two merger tools is confirmed by Aryan.
-                </p>
-                <div className="evidence-chip">
-                  Source · Public profile + repositories + user confirmation
-                </div>
-              </div>
-              <span className="experience-number">02</span>
-            </article>
-          </div>
-        </section>
 
-        <section className="skills section-shell" id="skills">
-          <SectionLabel code="05 / SYSTEM LOADOUT">Skills with evidence</SectionLabel>
-          <div className="section-heading">
-            <div>
-              <p className="micro-copy">No arbitrary percentages</p>
-              <h2>Tools connected to shipped code.</h2>
-            </div>
-            <p>
-              Every item maps back to a named project or verified experience
-              area, not a self-rated progress bar.
-            </p>
-          </div>
-          <div className="skill-grid">
-            {skills.map((group, groupIndex) => (
-              <article key={group.group}>
-                <div className="skill-title">
-                  <span>0{groupIndex + 1}</span>
-                  <h3>{group.group}</h3>
-                </div>
-                <ul>
-                  {group.items.map(([skill, evidence]) => (
-                    <li key={skill}>
-                      <strong>{skill}</strong>
-                      <small>{evidence}</small>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
 
         <section className="certificates section-shell" id="certificates">
-          <SectionLabel code="06 / CREDENTIAL VAULT">Searchable evidence</SectionLabel>
+          <SectionLabel code="02 / CREDENTIAL VAULT">Searchable evidence</SectionLabel>
           <div className="certificate-tools">
             <label>
               <span>Search vault</span>
@@ -556,24 +527,11 @@ export function PortfolioClient() {
           )}
         </section>
 
-        <section className="timeline section-shell" id="timeline">
-          <SectionLabel code="07 / BUILD LOG">Engineering timeline</SectionLabel>
-          <div className="timeline-track">
-            {timeline.map((item, index) => (
-              <article key={`${item.date}-${item.title}`}>
-                <div className="timeline-node">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                </div>
-                <time>{item.date}</time>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+
+
 
         <section className="twin section-shell" id="twin">
-          <SectionLabel code="08 / DIGITAL TWIN">Ask the evidence layer</SectionLabel>
+          <SectionLabel code="03 / DIGITAL TWIN">Ask the evidence layer</SectionLabel>
           <div className="section-heading">
             <div>
               <p className="micro-copy">Deterministic · cited · private</p>
@@ -587,31 +545,10 @@ export function PortfolioClient() {
           <DigitalTwin />
         </section>
 
-        <section className="evidence section-shell" id="evidence">
-          <SectionLabel code="09 / TRUST LAYER">How claims are made</SectionLabel>
-          <div className="evidence-grid">
-            <article>
-              <span>01</span>
-              <h3>Source-verified</h3>
-              <p>Architectures and features were checked against public code, routes, models, and project structure.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>User-confirmed</h3>
-              <p>Education, experience, and active workflow context comes from the information Aryan supplied for this build.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Deliberately withheld</h3>
-              <p>Confidential company material, unsupported metrics, and unaudited private-product claims are not published.</p>
-            </article>
-          </div>
-        </section>
-
         <section className="contact section-shell" id="contact">
           <div className="contact-card">
             <div>
-              <SectionLabel code="10 / NEXT MOVE">Professional contact</SectionLabel>
+              <SectionLabel code="04 / NEXT MOVE">Professional contact</SectionLabel>
               <h2>Let’s build something that earns its complexity.</h2>
               <p>
                 Open to AI/ML, analytics engineering, data systems, computer
@@ -619,10 +556,30 @@ export function PortfolioClient() {
               </p>
             </div>
             <div className="contact-actions">
+              <div className="resume-hub">
+                <div className="resume-hub-heading">
+                  <span>Latest résumé</span>
+                  <strong>One current profile, kept accurate.</strong>
+                </div>
+                <div className="resume-options">
+                  <a href="mailto:aryantripathi.9910@gmail.com?subject=Request%3A%20latest%20r%C3%A9sum%C3%A9%20%E2%80%94%20Aryan%20Tripathi">
+                    <span>Aryan Tripathi · Professional résumé</span>
+                    <small>AI/ML, analytics, automation, computer vision, and full-stack systems</small>
+                    <b>Request latest →</b>
+                  </a>
+                </div>
+                <p>
+                  Sent directly on request so recruiters always receive the
+                  current version instead of an outdated public file.
+                </p>
+              </div>
               <a className="contact-direct" href="mailto:aryantripathi.9910@gmail.com">
                 <span>Email</span>
                 aryantripathi.9910@gmail.com
               </a>
+              <button className="contact-copy" type="button" onClick={copyEmail} aria-live="polite">
+                {emailCopied ? "Email copied ✓" : "Copy email"}
+              </button>
               <a className="contact-direct" href="tel:+917977027708">
                 <span>Phone</span>
                 +91 79770 27708

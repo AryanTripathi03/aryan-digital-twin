@@ -11,27 +11,31 @@
 - Django relational models and LLM-to-SQL experiment in Finsight AI
 - FastAPI rule agents and local Ollama adapter in Student Success Agent
 - Streamlit travel calculations and PDF invoice generation
+- Orvion multi-format intake, schema-grounded analytics contracts, deterministic pandas execution, conversations, AutoML, simulation and report exports
+- Vaani protected batch intake, local transcription and translation, speaker alignment, evidence-backed call analysis and multi-format exports
 
 ## Verified by public documents
 
 - Five certificate PDFs in the public certificate repository
+- Public GitHub repositories for Orvion and Vaani under Aryan's account
 
 ## User-provided / public-profile context
 
 - B.Tech CSE specialization in AI & ML at the University of Mumbai, from 2023
-- Current AI/ML internship at Aditya Birla Housing Finance, from June 2026
-- AI/ML internship at Berry Alloys, from December 2025
+- Completed AI/ML internship at Aditya Birla Housing Finance Ltd
+- Completed AI/ML internship at Berry Alloys Ltd
 - Berry Excel Merger and Workbook Converter are used in Berry Alloys workflows
 - Travel billing applications are used by their respective business owners
 - App Development Workshop credential
+- Orvion and Vaani are used in current company workflows; confidential inputs and company processes remain excluded
+- ForgeSense Intelligence was previously used in an industrial workflow
 
 ## Requires confirmation
 
-- Orvion architecture and features
 - Exact company adoption dates
 - Measured time savings, cost savings or performance improvements
 - Deployment security and operational service levels
-- Publicly downloadable résumé
+- Publicly downloadable résumé variants; the site currently requests the latest targeted version instead
 - Aditya Birla Housing Finance responsibilities and deliverables
 
 ## Excluded for confidentiality or safety

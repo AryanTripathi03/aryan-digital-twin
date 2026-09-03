@@ -10,7 +10,7 @@
 
 ## Projects
 
-Every project needs purpose, status, context, implemented solution, architecture route, stack, evidence, limitations and repository link. A live link is optional and should be omitted if the service is unsafe or unavailable.
+Every project needs purpose, status, context, implemented solution, architecture route, stack, evidence, limitations and either a public repository link or an explicit private-source label. A live link is optional and should be omitted if the service is unsafe or unavailable.
 
 ## Experience
 
