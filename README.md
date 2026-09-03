@@ -2,6 +2,8 @@
 
 An evidence-led, interactive engineering portfolio for Aryan Tripathi. The experience presents AI/ML, industrial analytics, computer vision, backend systems and business software as an original navigable voyage.
 
+**Live portfolio:** [aryan-digital-twin.aryantripathi-9910.chatgpt.site](https://aryan-digital-twin.aryantripathi-9910.chatgpt.site)
+
 ## Product
 
 - Cinematic server-rendered hero with a compact real portrait
@@ -13,7 +15,7 @@ An evidence-led, interactive engineering portfolio for Aryan Tripathi. The exper
 - Focused single-page flow: cinematic hero, projects, certificates, Digital Twin and contact
 - Compact professional-experience signal for Aditya Birla Housing Finance Ltd and Berry Alloys Ltd
 - Searchable certificate vault with public PDFs
-- Multi-track résumé selector that downloads published versions or requests the latest targeted version
+- Focused résumé access with a simple replacement workflow for future updates
 - Portrait-phone refinements for modern devices including iPhone 14 Pro Max proportions
 - Deterministic, cited Aryan Digital Twin with no paid or external model
 - Conventional mobile navigation, keyboard support and reduced-motion behavior
@@ -97,17 +99,13 @@ See `SECURITY.md` and `docs/security-model.md`.
 ## Known limitations
 
 - The full Orvion and Vaani stacks depend on private local models, worker infrastructure and synthetic-safe showcase data; their public demos do not process confidential company material.
-- Résumé PDFs remain optional: unpublished tracks automatically request Aryan's latest targeted version by email.
 - Orvion and Vaani use approved public-safe showcase covers; real product recordings can be added later if supplied.
-- The canonical production domain must replace placeholder sitemap/schema URLs.
 - Some public project deployments require security hardening.
-- Browser visual QA was not requested in the initial brief; production build and rendered-output tests are the required baseline.
 
 ## Roadmap
 
-- Verified faithful public showcase links for Orvion and Vaani
 - Optional real product recordings using synthetic data
-- Publish any approved résumé variants while retaining the request-latest fallback
+- Keep the published résumé current through the documented replacement workflow
 - Certificate preview thumbnails
 - Security hardening of live file-processing demos
 - Optional local Ollama adapter layered behind deterministic Twin retrieval
