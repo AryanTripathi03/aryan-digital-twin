@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ??
-      "https://aryan-digital-twin.openai.site",
+      "https://aryan-digital-twin.aryantripathi-9910.chatgpt.site",
   ),
   title: {
     default: "Aryan Tripathi · AI/ML Engineer & Systems Builder",
