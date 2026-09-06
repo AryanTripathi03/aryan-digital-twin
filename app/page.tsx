@@ -11,7 +11,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Aryan Tripathi",
-  url: "https://aryan-digital-twin.aryantripathi-9910.chatgpt.site",
+  url: "https://aryan-digital-twin.aryantripathi-9910.workers.dev",
   sameAs: [
     "https://github.com/AryanTripathi03",
     "https://www.linkedin.com/in/aryantripathi-ai/",

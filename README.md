@@ -2,7 +2,7 @@
 
 An evidence-led, interactive engineering portfolio for Aryan Tripathi. The experience presents AI/ML, industrial analytics, computer vision, backend systems and business software as an original navigable voyage.
 
-**Live portfolio:** [aryan-digital-twin.aryantripathi-9910.chatgpt.site](https://aryan-digital-twin.aryantripathi-9910.chatgpt.site)
+**Live portfolio:** [aryan-digital-twin.aryantripathi-9910.workers.dev](https://aryan-digital-twin.aryantripathi-9910.workers.dev)
 
 ## Product
 

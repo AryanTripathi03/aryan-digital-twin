@@ -85,7 +85,7 @@ export const projects: Project[] = [
       caption: "Authentic live interface · original public demo",
     },
     sourceLabel: "Private source",
-    live: "https://orvion-intelligence.aryantripathi-9910.chatgpt.site",
+    live: "https://orvion-intelligence.aryantripathi-9910.workers.dev",
     featured: true,
   },
   {
@@ -123,7 +123,7 @@ export const projects: Project[] = [
       "Organisation-specific compliance and agent-scoring rubrics remain intentionally unconfigured.",
     ],
     sourceLabel: "Private source",
-    live: "https://vaani-ai-evidence.aryantripathi-9910.chatgpt.site",
+    live: "https://vaani-ai-evidence.aryantripathi-9910.workers.dev",
     cover: {
       src: "/projects/vaani-interface.webp",
       alt: "Authentic Vaani AI workspace with recording upload, batch processing queue, and evidence-first local pipeline",
