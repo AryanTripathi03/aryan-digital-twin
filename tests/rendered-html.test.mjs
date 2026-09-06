@@ -39,8 +39,8 @@ test("server-renders the complete Aryan Digital Twin portfolio", async () => {
   assert.doesNotMatch(html, /github\.com\/AryanTripathi03\/Vaani/);
   assert.match(html, /Private source/);
   assert.match(html, /Authentic live interface/);
-  assert.match(html, /orvion-intelligence\.aryantripathi-9910\.chatgpt\.site/);
-  assert.match(html, /vaani-ai-evidence\.aryantripathi-9910\.chatgpt\.site/);
+  assert.match(html, /orvion-intelligence\.aryantripathi-9910\.workers\.dev/);
+  assert.match(html, /vaani-ai-evidence\.aryantripathi-9910\.workers\.dev/);
   assert.match(html, /Latest résumé/);
   assert.match(html, /Request latest/);
   assert.match(html, /Berry Excel Merger/);
