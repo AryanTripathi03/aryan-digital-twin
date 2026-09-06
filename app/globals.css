@@ -486,30 +486,22 @@ select {
   position: relative;
   z-index: 2;
   height: 575px;
-  max-width: 470px;
-  margin-inline: auto;
-  overflow: hidden;
-  border: 1px solid rgba(21,21,21,.32);
-  border-radius: 34px 8px 34px 8px;
-  background: #eee3cd;
-  box-shadow: 12px 14px 0 rgba(21,21,21,.11);
+  overflow: visible;
+  background: transparent;
+  filter: drop-shadow(10px 13px 0 rgba(21,21,21,.13));
   transform: translateZ(58px);
 }
 
 .portrait-frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 73% center;
-  filter: saturate(.9) contrast(1.02);
-  transform: none;
-  animation: technical-portrait-breathe 7s ease-in-out infinite;
-  transform-origin: center;
+  object-fit: contain;
+  object-position: center;
+  filter: saturate(.93) contrast(1.03);
+  transform: scale(1);
+  animation: avatar-breathe 4.5s ease-in-out infinite;
+  transform-origin: 50% 72%;
 }
-
-.identity-card .ink-burst,
-.identity-card .motion-ribbon,
-.identity-card .character-shadow { display: none; }
 
 .energy-ring {
   position: absolute;
@@ -2257,11 +2249,6 @@ select {
   50% { transform: scale(1.055) translateY(-5px); }
 }
 
-@keyframes technical-portrait-breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.018); }
-}
-
 @keyframes ring-spin {
   to { transform: rotate(360deg); }
 }
@@ -3058,10 +3045,11 @@ body {
   }
 
   .portrait-frame img {
-    object-fit: cover;
-    object-position: 72% center;
+    object-fit: contain;
+    object-position: center bottom;
     animation: none;
-    transform: none;
+    transform: translateY(18px) scale(.92);
+    transform-origin: center bottom;
   }
 
   .hero-footer {
@@ -3213,6 +3201,6 @@ body {
   }
 
   .portrait-frame img {
-    transform: none;
+    transform: translateY(18px) scale(.9);
   }
 }
