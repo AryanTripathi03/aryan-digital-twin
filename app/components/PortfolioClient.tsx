@@ -259,13 +259,13 @@ export function PortfolioClient() {
                 <div className="motion-ribbon ribbon-one" aria-hidden="true" />
                 <div className="motion-ribbon ribbon-two" aria-hidden="true" />
                 <div className="portrait-frame">
-                  {/* Identity-preserving animated illustration derived from Aryan's photo. */}
+                  {/* Approved technical-editorial identity artwork. */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/aryan-awakened-4k.webp"
-                    alt="Animated illustration of Aryan Tripathi"
-                    width={2160}
-                    height={3600}
+                    src="/images/aryan-technical-identity.png"
+                    alt="Aryan Tripathi in a cream, black, and rust-red technical editorial composition"
+                    width={1672}
+                    height={942}
                   />
                 </div>
                 <div className="character-shadow" aria-hidden="true" />
